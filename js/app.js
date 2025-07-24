@@ -60,7 +60,7 @@ ultimaRutina = { tipoDePiel, problema, edad, frecuencia };
 mostrarRutina(ultimaRutina); // solo se muestra, NO se guarda
 });
 
-// 👉 Guardar rutina en localStorage solo si el usuario hace clic
+// se guarda la rutina en localStorage solo si el usuario hace click en el boton guardar rutina
 botonGuardar.addEventListener("click", function () {
   if (ultimaRutina) {
     localStorage.setItem("rutinaGuardada", JSON.stringify(ultimaRutina));
@@ -70,7 +70,7 @@ botonGuardar.addEventListener("click", function () {
   }
 });
 
-// 👉 Ver rutina guardada cuando el usuario lo decida
+// se ve la rutina guardada cuando el usuario hace click en ver rutina
 botonVer.addEventListener("click", function () {
   const datosGuardados = JSON.parse(localStorage.getItem("rutinaGuardada"));
   if (!datosGuardados) {
