@@ -117,18 +117,26 @@ button:hover {
 
 /* movile */
 @media (max-width: 600px) {
-  .container-flex {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
+  .barra-menu {
+  text-align: center;
+  padding: 20px 15px;
+}
 
-  .navbar-nav {
-    flex-direction: row;
-    gap: 15px;
-    width: 100%;
-    align-items: flex-start;
-  }
+.container-flex {
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-nav {
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-nav a {
+  font-size: 18px;
+}
 
   .logo-box img {
     width: 60px;
@@ -153,16 +161,17 @@ button:hover {
   }
 
   .botones-abajo {
-    width: 100%;
     height: auto;
     font-size: 15px;
     padding: 15px;
     gap: 10px;
     justify-content: center;
     align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
   }
 
   #listaProductos li {
     font-size: 14px;
   }
-}
