@@ -114,3 +114,52 @@ button{
 button:hover {
   background-color: #0291ce;
 }
+
+/* movile */
+@media (max-width: 600px) {
+  .container-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .logo-box img {
+    width: 60px;
+  }
+
+  .carrito {
+    align-self: flex-end;
+  }
+
+  form#cuestionario {
+    padding: 15px;
+    margin: 20px 10px;
+  }
+
+  form#cuestionario h2 {
+    font-size: 20px;
+  }
+
+  form#cuestionario button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  button {
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    padding: 15px;
+  }
+
+  #listaProductos li {
+    font-size: 14px;
+  }
+}
