@@ -124,7 +124,7 @@ button:hover {
   }
 
   .navbar-nav {
-    flex-direction: column;
+    flex-direction: row;
     gap: 15px;
     width: 100%;
     align-items: flex-start;
@@ -152,11 +152,14 @@ button:hover {
     padding: 10px;
   }
 
-  button {
+  .botones-abajo {
     width: 100%;
     height: auto;
     font-size: 15px;
     padding: 15px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
   }
 
   #listaProductos li {
