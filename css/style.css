@@ -1,6 +1,8 @@
+/* css normal */
 .barra-menu {
   background-color: #b6dbee;
   padding: 15px 30px;
+  border-radius: 10px;
 }
 
 .container-flex {
@@ -115,12 +117,70 @@ button:hover {
   background-color: #0291ce;
 }
 
+/* css modo oscuro */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f9fa; /* Fondo claro */
+    color: #212529; /* Texto oscuro */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modo-oscuro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+h1 {
+    color: #164a83;
+    font-size: 15px;
+    display: flex;
+    padding: 15px;
+}
+button {
+    padding: 10px 15px;
+    font-size: 0.9em;
+    cursor: pointer;
+    background-color: #6c757d; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #484e52;
+}
+
+/* Estilos para el Modo Oscuro (se añaden a la clase 'dark-mode' en el body) */
+body.dark-mode {
+    background-color: #343a40; /* Fondo oscuro */
+    color: #e2e6ea; /* Texto claro */
+}
+
+body.dark-mode h1 {
+    color: #6fb1f3; 
+}
+
+body.dark-mode {
+    background-color: #495057; /* Fondo de caja oscuro */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode button {
+    background-color: #0056b3; 
+}
+
 /* movile */
 @media (max-width: 600px) {
   .barra-menu {
   text-align: center;
   padding: 20px 15px;
-}
+  }
 
 .container-flex {
   flex-direction: column;
@@ -176,3 +236,4 @@ button:hover {
     font-size: 14px;
   }
 }
+

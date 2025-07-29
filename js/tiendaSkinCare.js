@@ -1,3 +1,25 @@
+//modo oscuro
+const btnModoOscuro = document.getElementById("btnModoOscuro");
+const body = document.body;
+
+btnModoOscuro.addEventListener("click", () => {
+     body.classList.toggle("dark-mode");
+
+ if (body.classList.contains("dark-mode")) {
+    localStorage.setItem("tema", "dark");
+  } else {
+    localStorage.setItem("tema", "light");
+  }
+});
+
+const temaGuardado = localStorage.getItem("tema");
+if (temaGuardado === "dark") {
+  body.classList.add("dark-mode");
+} else {
+  body.classList.remove("dark-mode");
+}
+
+
 //accedemos al formulario y los botones
 const cuestionario = document.getElementById("cuestionario"); //Busca un elemento por su ID en el html, Y lo guarda en una variable de JavaScript llamada formulario.
 const botonVer = document.getElementById("verRutina");
