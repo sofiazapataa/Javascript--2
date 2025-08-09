@@ -1,0 +1,65 @@
+[
+  {
+    "id": "limpiador-facial-suave",
+    "nombre": "Limpiador facial suave",
+    "tipos": ["seca", "sensible"],
+    "precio": 5800,
+    "imagen": "../medios/Limpiador facial suave neutrogena.jpg"
+  },
+  {
+    "id": "limpiador-facial-purificante",
+    "nombre": "Limpiador facial purificante",
+    "tipos": ["grasa", "mixta", "acné"],
+    "precio": 5750,
+    "imagen": "../medios/Limpiador facial purificante neutrogena.jpg"
+  },
+  {
+    "id": "tonico-hidratante",
+    "nombre": "Tonico hidratante",
+    "tipos": ["seca", "sensible", "arrugas"],
+    "precio": 4700,
+    "imagen": "../medios/tonico hidratante neutrogena.jpg"
+  },
+  {
+    "id": "serum-vitamina-c-glow",
+    "nombre": "Serum vitamina C toque glow",
+    "tipos": ["sensible", "seca", "manchas"],
+    "precio": 5400,
+    "imagen": "../medios/serum vitamina c toque glow neutrogena.jpg"
+  },
+  {
+    "id": "serum-vitamina-c-mate",
+    "nombre": "Serum vitamina C toque mate",
+    "tipos": ["grasa", "mixta", "enrojecimiento"],
+    "precio": 5450,
+    "imagen": "../medios/serum toque seco neutrogena.jpg"
+  },
+  {
+    "id": "crema-hidratante-ligera",
+    "nombre": "Crema hidratante ligera",
+    "tipos": ["grasa", "mixta"],
+    "precio": 6100,
+    "imagen": "../medios/crema hidratante ligera neutrogena.jpg"
+  },
+  {
+    "id": "crema-nutritiva",
+    "nombre": "Crema nutritiva",
+    "tipos": ["seca", "manchas"],
+    "precio": 6130,
+    "imagen": "../medios/crema hidratante neutrogena.jpg"
+  },
+  {
+    "id": "protector-solar-hidratante",
+    "nombre": "Protector solar FPS 50, efecto hidratante",
+    "tipos": ["seca", "enrojecimiento"],
+    "precio": 7300,
+    "imagen": "../medios/protector solar hidratante neutrogena.jpg"
+  },
+  {
+    "id": "protector-solar-efecto-seco",
+    "nombre": "Protector solar FPS 50, efecto seco",
+    "tipos": ["grasa", "mixta"],
+    "precio": 7320,
+    "imagen": "../medios/protector solar oil free neutrogena.jpg"
+  }
+]

@@ -1,108 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <script defer src="./js/tiendaSkinCare.js"></script>
-    <title>tienda de skinCare</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/recomendados.js" defer></script>
+  <script src="./js/modoOscuro.js" defer></script>
+  <title>tu rutina de SkinCare</title>
 </head>
 <body>
- <header>
+<header>
   <div class="modo-oscuro">
     <h1>Mi sitio flexible</h1>
     <button id="btnModoOscuro">Alternar Modo Oscuro</button>
   </div>
   <section class="barra-menu">
     <div class="container-flex">
-      <!-- LOGO -->
       <div class="logo-box">
         <a href="../index.html">
           <img src="./medios/neutrogena logo.png" class="logo" alt="logo tienda">
         </a>
       </div>
-
-      <!-- MENÚ -->
       <nav class="menu-box">
         <ul class="navbar-nav">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="#">Contactos</a></li>
-          <li><a href="./tienda.html">Tienda</a></li>
-          <li><a href="./sobrenosotros.html">Sobre Nosotros</a></li>
+          <li><a href="#">Tu Rutina ideal</a></li>
+          <li><a href="./pages/tienda.html">Tienda</a></li>
+          <li><a href="./pages/carrito.html">Carrito</a></li>
         </ul>
       </nav>
-
-      <!-- CARRITO -->
       <div class="carrito">
-        <img src="./medios/Carrito.png" alt="Carrito">
+        <img src="./medios/Carrito.png" id="numerito" alt="Carrito"><span>0</span>
       </div>
     </div>
   </section>
 </header>
+
 <main>
-     <form id="cuestionario">
-  <h2>Conocé tu rutina ideal ✨</h2>
 
-  <!-- Tipo de piel -->
-  <label for="tipoDePiel">¿Cuál es tu tipo de piel?</label>
-  <select id="tipoDePiel" name="tipoDePiel" required>
-    <option value="">Seleccioná una opción</option>
-    <option value="seca">Seca</option>
-    <option value="grasa">Grasa</option>
-    <option value="mixta">Mixta</option>
-    <option value="sensible">Sensible</option>
-  </select>
-
-  <!-- Problema principal -->
-  <label for="problema">¿Qué problema querés tratar?</label>
-  <select id="problema" name="problema" required>
-    <option value="">Seleccioná una opción</option>
-    <option value="acné">Acné</option>
-    <option value="manchas">Manchas</option>
-    <option value="arrugas">Arrugas</option>
-    <option value="resequedad">Resequedad</option>
-    <option value="enrojecimiento">Enrojecimiento</option>
-    <option value="oleosidad">oleosidad</option>
-  </select>
-
-  <!-- Edad -->
-  <label for="edad">¿Qué edad tenés?</label>
-  <input type="number" id="edad" name="edad" min="10" max="100" required>
-
-  <!-- Frecuencia de rutina -->
-  <label for="frecuencia">¿Cada cuánto hacés tu rutina?</label>
-  <select id="frecuencia" name="frecuencia" required>
-    <option value="">Seleccioná una opción</option>
-    <option value="todosLosDias">Todos los días</option>
-    <option value="aVeces">A veces</option>
-    <option value="nunca">Nunca</option>
+  <form id="cuestionario">
+    <h2>Conocé tu rutina ideal ✨</h2>
+    <label for="tipoDePiel">¿Cuál es tu tipo de piel?</label>
+    <select id="tipoDePiel" name="tipoDePiel" required>
+      <option value="">Seleccioná una opción</option>
+      <option value="seca">Seca</option>
+      <option value="grasa">Grasa</option>
+      <option value="mixta">Mixta</option>
+      <option value="sensible">Sensible</option>
     </select>
 
-      <button type="submit">Enviar</button>
-</form>
+    <label for="problema">¿Qué problema querés tratar?</label>
+    <select id="problema" name="problema" required>
+      <option value="">Seleccioná una opción</option>
+      <option value="acné">Acné</option>
+      <option value="manchas">Manchas</option>
+      <option value="arrugas">Arrugas</option>
+      <option value="resequedad">Resequedad</option>
+      <option value="enrojecimiento">Enrojecimiento</option>
+      <option value="oleosidad">Oleosidad</option>
+    </select>
 
-<!-- Resultado -->
-<div id="resultado">
-  <h3 id="mensajeFinal"></h3>
-  <p id="datoPiel"></p>
-  <p id="datoProblema"></p>
-  <p id="datoEdad"></p>
-  <p id="datoFrecuencia"></p>
-  <div id="productosRecomendados"></div>
-</div>
+    <label for="edad">¿Qué edad tenés?</label>
+    <input type="number" id="edad" name="edad" min="10" max="100" required>
 
-<div id="productosRecomendados">
-    <h4>Productos recomendados:</h4>
-    <ul id="listaProductos"></ul>
-    <p id="totalRutina"></p>
-  </div>
-</div>
-<div class="botones-abajo">
-  <button id="guardarRutina">Guardar esta rutina</button>
-  <button id="verRutina">Ver rutina guardada</button>
-</div>
-  
+    <label for="frecuencia">¿Cada cuánto hacés tu rutina?</label>
+    <select id="frecuencia" name="frecuencia" required>
+      <option value="">Seleccioná una opción</option>
+      <option value="todosLosDias">Todos los días</option>
+      <option value="aVeces">A veces</option>
+      <option value="nunca">Nunca</option>
+    </select>
 
+    <button type="submit">Enviar</button>
+  </form>
+
+  <section id="recomendaciones">
+    <div id="resultado" style="display:none;">
+      <div class="card resumen-card" id="resumen-card">
+        <h3 class="resumen-titulo">¡Listo! Acá están tus recomendaciones ✨</h3>
+        <ul class="resumen-lista" id="resumen-lista"></ul>
+      </div>
+    </div>
+
+    <h2 id="titulo-recos" class="titulo-recos" style="display:none;">Productos recomendados</h2>
+    <ul id="lista-recomendados" class="contenedor-cards"></ul> 
+    <div id="total-recos"></div>
+    <div id="resumen"></div>
+
+    <div class="botones-abajo">
+      <button id="guardarRutina">Guardar esta rutina</button>
+      <button id="verRutina">Ver rutina guardada</button>
+      <button id="btnVolver" style="display:none;">⬅ Volver</button>
+    </div>
+  </section>
 </main>
+<footer></footer>
+<!-- Toastify CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+<!-- Toastify JS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 </html>
