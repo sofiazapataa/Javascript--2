@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  fetch("../json/productos.json") //cargamos los productos
+  fetch("/json/productos.json") //cargamos los productos
     .then(res => {
       return res.json();//convierte la respuesta del JSON del fetch en un objeto, para luego guardar los productos
     })
