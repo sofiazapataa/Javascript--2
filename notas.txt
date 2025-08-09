@@ -1,0 +1,147 @@
+diagramas de flujo
+--------------------------------------------------------------------------------------------------------------------------
+tienda.js + tienda.html=
+
+[DOM listo en tienda.html]
+        |
+        v
+ setCarrito( dedupeCarrito(getCarrito()) )   --> limpia duplicados en LS
+        |
+        v
+ actualizarNumeritoHeader()                  --> actualizamos numerito con LS
+        |
+        v
+ ¿#cards-container existe? --no--> [fin]
+        |
+       sí --> mostramos las cards
+        |
+        v
+ fetch("../json/productos.json") --> traemos los productos
+        |
+        v
+ res.json()  --> productos[]   --> convierte la resp a formato legible 
+        |
+        v
+ mostramos cards en #cards-container
+ (img, nombre, precio, tipos, botón .producto-agregar data-id)
+        |
+        v
+ [Delegación de click en #cards-container]
+        |
+        v
+ ¿click en .producto-agregar?
+        | no
+        v
+      (ignora)
+        | sí
+        v
+ id = data-id --> traemos los datos de id correcto
+ prod = productos.find(p.id == id)
+        |
+        v
+ agregarAlCarritoPorId(id, productos)
+        |
+        v
+   - lee carrito (LS)
+   - si existe: +1 cantidad
+   - sino: push {id, nombre, precio, imagen, cantidad:1}
+   - carrito = dedupeCarrito(carrito)
+   - setCarrito(carrito)
+   - actualizarNumeritoHeader()
+   - Toastify “agregado” (si está cargado)
+        |
+        v
+[fin interacción en tienda]
+
+--------------------------------------------------------------------------------------------------------------------------
+
+carrito.js + carrito.html= 
+
+[al cargar carrito.html]
+        |
+        v
+ setCarrito( dedupeCarrito(getCarrito()) )   --> Obtiene el carrito desde LocalStorage, elimina duplicados y lo vuelve a guardar limpio
+        |
+        v
+ cargarProductosCarrito()  -->  Muestra en la página los productos del carrito y actualiza la interfaz
+        |
+        v
+ productosEnCarrito = dedupeCarrito(getCarrito()) --> Crea una copia del carrito sin duplicados y la guarda en la variable global
+ setCarrito(productosEnCarrito) --> Guarda en LocalStorage esa versión limpia del carrito
+        |
+        v
+ ¿productosEnCarrito.length > 0?
+   |                                     |
+  no                                    sí
+   |                                     |
+   v                                     v
+ mostrar #carrito-vacio                  ocultar #carrito-vacio
+ ocultar #carrito-productos              mostrar #carrito-productos
+ ocultar #carrito-acciones               mostrar #carrito-acciones
+ ocultar #carrito-comprado               ocultar #carrito-comprado
+   |                                     |
+   v                                     v
+ actualizarBotonesEliminar()             vaciar innerHTML #carrito-productos
+ actualizarTotal()                       forEach producto => render card:
+ actualizarNumeritoHeader()              (img, nombre, cantidad, precio, subtotal,
+   |                                      botón .carrito-producto-eliminar data-id)
+   +--------------------------------------+--> append a #carrito-productos
+                                             |
+                                             v
+                                   actualizarBotonesEliminar()
+                                   actualizarTotal()
+                                   actualizarNumeritoHeader()
+                                             |
+                                             v
+                                   [Listo para eventos]
+
+Eventos:
+1- Botón 🗑 (.carrito-producto-eliminar)
+   - id = data-id
+   - c = getCarrito()
+   - idx = findIndex por id
+   - si existe: c.splice(idx,1), setCarrito(c), cargarProductosCarrito()
+
+2- Botón “Vaciar carrito”
+   - setCarrito([])
+   - cargarProductosCarrito()
+
+3- Botón “Comprar”
+   - c = getCarrito(); si vacío: return
+   - setCarrito([]); limpiar #carrito-productos
+   - ocultar acciones + vacío; mostrar #carrito-comprado
+   - actualizarTotal()
+   - actualizarNumeritoHeader()
+   - (opcional) Toastify “¡Gracias por tu compra!”
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+------------------------
+Flujo general del sitio=
+------------------------
+
+[Usuario llega a cualquier página]
+        |
+        v
+ dedupe + setCarrito (si aplica)  -> el LS siempre queda “limpio”
+        |
+        v
+ actualizarNumeritoHeader()       -> badge del header muestra cantidad de ítems 
+        |
+        +-----------------------------+
+        |                             |
+        v                             v
+   (Tienda)                       (Carrito)
+   - Carga JSON                   - Lee LS y renderiza
+   - Render cards                 - Muestra lista o “vacío”
+   - Click “Agregar”              - Calcula subtotal/total
+     -> agrega/actualiza          - Botón eliminar / vaciar / comprar
+     -> dedupe + setCarrito       - Tras cada cambio -> setCarrito + re-render
+     -> actualizarNumeritoHeader  - actualizarTotal + actualizarNumeritoHeader
+     -> Toastify “agregado”       - (opcional) Toastify “compra”
+        |
+        v
+[Usuario navega a Carrito]
+        |
+        v
+ cargarProductosCarrito() -> render según LS + actualizarNumeritoHeader()
